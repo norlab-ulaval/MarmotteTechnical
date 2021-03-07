@@ -1,8 +1,8 @@
-.aux
-.dvi
-.log
-.out
-.ps
-.xml
-.gz
-.bak
+*.aux
+*.dvi
+*.log
+*.out
+*.ps
+*.xml
+*.gz
+*.bak
