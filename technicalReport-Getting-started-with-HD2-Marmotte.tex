@@ -39,7 +39,7 @@
 
 % ---------------------------------------------------------------
 \begin{abstract}
-This is a short technical report to help me get familiar with the project and have all the important information and specifications relative to my task in one place.
+This technical report to help me get familiar with the project and have all the important information and specifications relative to my tasks in one place.
 \end{abstract}
 
 % ---------------------------------------------------------------
@@ -53,10 +53,10 @@ This is a short technical report to help me get familiar with the project and ha
 \end{figure}
 
 \begin{itemize}
-    \item From superdroidrobots.com
+    \item The robot is from \href{https://www.superdroidrobots.com/shop/item.aspx/hd2-treaded-atr-tank-robot-platform/789/}{superdroidrobots.com}
     \item Can climb obstacles, ascend stairs and drive over most terrain
     \item Controled through Roboclaw motor controller
-    \item We use 4 IG52-04 24VDC 285 RPM Gear Motor, 2 of them with encoders. Encoders are not needed for the other 2 as they are connected in line with the same track
+    \item We use 4 \href{https://www.superdroidrobots.com/shop/item.aspx/ig52-04-24vdc-285-rpm-gear-motor-with-encoder/843/}{IG52-04 24VDC 285 RPM} Gear Motor, 2 of them with encoders. Encoders are not needed for the other 2 as they are connected in line with the same track
 \end{itemize}
 
 \begin{figure}[h]
@@ -159,10 +159,26 @@ This is a short technical report to help me get familiar with the project and ha
 \end{figure}
 
 % ---------------------------------------------------------------
+
+\section{The batteries}
+
+
+% ---------------------------------------------------------------
 \section{Motion studio}
+
+BasicMicro Motion Studio is the name of the software designed with the roboclaw and it can be found on the \href{https://www.basicmicro.com/downloads}{basicmicro} website.\par
+
+When connecting the roboclaw to motion studio it will automatically check for software updates.\\
+Then, for the applications that we use in the lab, we want to auto tune the motors in the velocity settings. We must do this in order for the roboclaw ros package to work properly.
 
 % ---------------------------------------------------------------
 \section{ROS Driver}
+
+Different ROS drivers exist. We have tried two packages that seem to work for our preliminary testing. One uses a rospy file and the other is a roscpp file.
+
+The first one is found on github \href{https://github.com/gnuoyohes/roboclaw_ros}{here}, and the seccond one is also found on github \href{https://github.com/csvance/roboclaw}{here}.\\
+To use these properly they can only be installed in the workspace one at a time because of the names of the files inside the packages that will get mixed up if they are both available.
+
 
 % ---------------------------------------------------------------
 \section{Remote Control}
