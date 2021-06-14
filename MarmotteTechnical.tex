@@ -1,0 +1,174 @@
+\documentclass[12pt,letterpaper,oneside]{article}
+\input{preamble}
+
+% ---------------------------------------------------------------
+% Load style
+\input{technicalReportStyle.tex}
+% ---------------------------------------------------------------
+
+
+% Add your other packages here
+% make sure to check prembule.tex first!
+\usepackage{wrapfig}
+\usepackage{biblatex}
+
+
+%================================================================
+\bibliography{bibliography}
+\begin{document}
+\include{titlePage}
+\makeCustomTitle
+\thispagestyle{titlePage}
+
+% ---------------------------------------------------------------
+\begin{abstract}
+Technical document showing the low level electronics as well as the ROS packages used to control the robot with a controller. Design techniques are shown to help reduce electrical noise as much as possible as well as information on some of the electrical connections. Schematics of the PCB designs are provided as well. This document will continue to evolve over the course of summer 2021. I thank you in advance for taking the time to read this document. I will be happy to answer any questions as well as take any feedback on the layout and execution of this document or make any changes if necessary. I can be reached at nicolas.antonucci.1@ulaval.ca.
+\end{abstract}
+
+% ---------------------------------------------------------------
+
+\tableofcontents
+\listoffigures
+
+% ---------------------------------------------------------------
+\newpage
+\section{Robot design}
+
+\subsection{Platform}
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+  \begin{center}
+    \includegraphics[width=0.38\textwidth]{figures/platform.jpg}
+  \end{center}
+  \caption{Platform}
+\end{wrapfigure}
+
+This is the HD2 Treaded Tank Robot Platform from superdroidrobots.com \cite{superdroidrobots}. This particular model was chosen because of its robustness and its ability to easily cross many obstacle. One of the main objectives of this robot is to quickly and effectively provide reconnaissance of an unknown erea. Therefore our objectives for low level electronics and control is to have solid electrical connections that will withstand vibrations, heat and electrical noise as well as robust code that will not lag or glitch.\\
+
+The platform is controled through the Roboclaw 2X30A motor controller from basicmicro, \cite{Roboclaw}, \cite{RoboclawData,RoboclawManual}. The motors used are the IG52-04 24VDC 285 RPM Gear Motors, \cite{EncMotors,RegMotors}, 2 of them with encoders. Encoders are not needed for the other 2 as they are connected in line with the same track.
+
+\subsection{Block diagram}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/blockDiagram.png}
+    \caption{Low level block diagram}
+    \label{fig:blockl}
+\end{figure}
+
+% ---------------------------------------------------------------
+
+\newpage
+\section{D.C. Geared motors}
+
+This next table shows the different motor configurations with their respective current draws and we can see our highlighted configuration at the bottom.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/motorSpecs.jpg}
+    \caption{Motor config}
+    \label{fig:motorConfig}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+  \begin{center}
+    \includegraphics[width=0.34\textwidth]{figures/twistedMotorWires.jpg}
+  \end{center}
+  \caption{Motor wires}
+\end{wrapfigure}
+
+During the wiring of the motors we were careful to install ferrite beads as close as possible to each motor. We also twisted the positive and negative wire together. These actions help us reduce electrical noise from the motors. The encoders require a $1K\Omega$ pull up resistor to VCC as you can see in the following pictures. We made sure to shrink wrap these connections to ensure a reliable connection. In the following pictures we can also see electrical caracteristics
+
+\begin{tabular}{ c c }
+    Motor & Pull up resistor attached \\
+    %\hline
+     \raisebox{-\totalheight}{\includegraphics[width=0.45\textwidth]{figures/motor.jpg}} & \raisebox{-\totalheight}{\includegraphics[width=0.45\textwidth]{figures/gearMotorPullUpBoard.jpg}} \\
+\end{tabular}
+
+\begin{tabular}{ c c }
+    Cable layout & Schematic \\
+    %\hline
+     \raisebox{-\totalheight}{\includegraphics[width=0.45\textwidth]{figures/encoderPins.jpg}} & \raisebox{-\totalheight}{\includegraphics[width=0.45\textwidth]{figures/encoderPins2.jpg}} \\
+\end{tabular}
+
+\begin{tabular}{ c }
+    Electrical caracteristics \\
+    %\hline
+     \raisebox{-\totalheight}{\includegraphics[width=0.9\textwidth]{figures/electricalCaracteristics.jpg}} \\
+\end{tabular}
+
+\begin{itemize}
+    \item To reduce noise as much as possible in the system, twist positive and negative wires together and use ferrite beads at each motor connection.
+    \item Bigger ferrite first over both wires and one smaller ferrite bead over each wire. (Don't forget the heatshrink)
+\end{itemize}
+
+
+%Here some examples of references \cite{Pomerleau2013,Pomerleau2014}.
+
+% ---------------------------------------------------------------
+\newpage
+\section{Roboclaw 2x30A Motor Controller}%
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/roboclaw.jpg}
+    \caption{Motor Controller}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{tabular}{ c c }
+    Hardware overview & Control interface \\
+    %\hline
+     \raisebox{-\totalheight}{\includegraphics[width=0.30\textwidth]{figures/roboclawHardwareOverview.jpg}} & \raisebox{-\totalheight}{\includegraphics[width=0.55\textwidth]{figures/roboclawPinLayout.jpg}} \\
+\end{tabular}
+
+\begin{itemize}
+    \item Connect batteries to the main terminal (G).
+    \item Connect encoder through pull up resistor chip to pins in section D.
+    \item See schematic below for details.
+    \item For initial tests connect roboclaw through usb to computer (batteries have to be connected to roboclaw to function). Use motion studio to check if motors and sensors work.
+\end{itemize}
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/roboclawHardwareTable.jpg}
+    \caption{Hardware overview reference table}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/roboclawPinTable.jpg}
+    \caption{Control interface reference table}
+    \label{fig:my_label}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/electricalSpecsTable.jpg}
+    \caption{Electrical specifications}
+    \label{fig:my_label}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/wiring.jpg}
+    \caption{Safety wiring}
+    \label{fig:my_label}
+\end{figure}
+
+\section{Motion studio}
+
+\section{ROS Driver}
+
+\section{Remote Control}
+
+% ---------------------------------------------------------------
+\newpage
+\printbibliography
+
+
+\end{document}
