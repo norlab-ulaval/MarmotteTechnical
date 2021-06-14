@@ -1,0 +1,63 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{superdroidrobots}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.superdroidrobots.com/shop/item.aspx/hd2-treaded-atr-tank-robot-platform/789/}}
+    \field{title}{HD2 robot webpage}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Roboclaw}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.basicmicro.com/RoboClaw-2x30A-Motor-Controller_p_9.html}}
+    \field{title}{Roboclaw webpage}
+    \field{year}{2021}
+  \endentry
+
+  \entry{RoboclawData}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://downloads.basicmicro.com/docs/roboclaw_datasheet_2x30A.pdf}}
+    \field{title}{Roboclaw datasheet}
+    \field{year}{2021}
+  \endentry
+
+  \entry{RoboclawManual}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf}}
+    \field{title}{Roboclaw user manual}
+    \field{year}{2021}
+  \endentry
+
+  \entry{EncMotors}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.superdroidrobots.com/shop/item.aspx/ig52-04-24vdc-285-rpm-gear-motor-with-encoder/843/}}
+    \field{title}{Gear motors with encoders}
+    \field{year}{2021}
+  \endentry
+
+  \entry{RegMotors}{misc}{}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.superdroidrobots.com/shop/item.aspx/ig52-04-24vdc-285-rpm-gear-motor/871/}}
+    \field{title}{Gear motors without encoders}
+    \field{year}{2021}
+  \endentry
+\enddatalist
+\endinput

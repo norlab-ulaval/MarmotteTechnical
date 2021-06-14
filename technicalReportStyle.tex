@@ -22,28 +22,28 @@
 %----------------------------------------
 % Title style
 
-\newcommand{\makeCustomTitle}
-{
-\begin{center}
-\LARGE{\textbf{\reportTitle{}}}
-\\
-\vspace{5pt}
-\normalsize{\reportAuthors{}}
-\\
-\reportDate{}
-\end{center}
-\begin{flushright}
-\footnotesize{
-\begin{tabu}{ccX}
-\toprule
-\emph{Version} & \emph{Date} & \emph{Comments} \\
-\midrule
-\reportVersions{} \\
-\bottomrule
-\end{tabu}
-}
-\end{flushright}
-}
+%\newcommand{\makeCustomTitle}
+%{
+%\begin{center}
+%\LARGE{\textbf{\reportTitle{}}}
+%\\
+%\vspace{5pt}
+%\normalsize{\reportAuthors{}}
+%\\
+%\reportDate{}
+%\end{center}
+%\begin{flushright}
+%\footnotesize{
+%\begin{tabu}{ccX}
+%\toprule
+%\emph{Version} & \emph{Date} & \emph{Comments} \\
+%\midrule
+%\reportVersions{} \\
+%\bottomrule
+%\end{tabu}
+%}
+%\end{flushright}
+%}
 
 %----------------------------------------
 % Section style
@@ -66,9 +66,9 @@
 \fancypagestyle{titlePage}{%
 \fancyhf{}%
 
-\fancyhead[L]{\includegraphics[height=0.45in]{UL_N}}
+\fancyhead[L]{\includegraphics[height=0.45in]{figures/UL_N.png}}
 \fancyhead[C]{\raisebox{0.2in}{\textsc{Technical Report}}}
-\fancyhead[R]{\includegraphics[height=0.45in]{norlab_logo_acronym_dark}}
+\fancyhead[R]{\includegraphics[height=0.45in]{figures/norlab_logo_acronym_dark.png}}
 \fancyfoot[C]{\thepage/\pageref*{LastPage}}
 
 \renewcommand{\headrulewidth}{0.1pt}
@@ -78,8 +78,10 @@
 % Define the page style for the other pages
 \fancypagestyle{plain}{%
 \fancyhf{}
-\fancyhead[L]{\reportTitle{}}
+\fancyhead[L]{\includegraphics[height=0.45in]{figures/UL_N.png}}
 \fancyfoot[C]{\thepage/\pageref*{LastPage}}
+\fancyhead[C]{\raisebox{0.2in}{\textsc{Technical Report}}}
+\fancyhead[R]{\includegraphics[height=0.45in]{figures/norlab_logo_acronym_dark.png}}
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
 }
@@ -105,12 +107,27 @@
 
 % ---------------------------------------------------------------
 % PDF setup
-\hypersetup{
-    pdftitle={\reportTitle},
+\hypersetup{%
+    %pdftitle={\reportTitle},
     pdfauthor={\@author},
     pdfkeywords={research, project, robotics, norlab, Northern Robotics Lab, Master's},
     pdfsubject={},
     pdfstartview={},
     urlcolor=cyan,
     linkcolor=red,
+}%
+
+\usepackage{biblatex}
+
+%% must be loaded at the end %%
+% control hyperlinks in the document
+\usepackage{hyperref}
+% setup for hyperref package
+\hypersetup{
+    colorlinks, % color links
+    %allcolors=blue, % set the color for all links
+    citecolor=blue, % set the color for citations
+    filecolor=cyan, % set the color for files links
+    linkcolor=red, % set the color for document links
+    urlcolor=blue % set to color for URLs
 }

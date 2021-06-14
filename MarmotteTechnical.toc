@@ -1,0 +1,9 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {section}{\numberline {1}Robot design}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Platform}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Block diagram}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}D.C. Geared motors}{4}{section.2}%
+\contentsline {section}{\numberline {3}Roboclaw 2x30A Motor Controller}{7}{section.3}%
+\contentsline {section}{\numberline {4}Motion studio}{10}{section.4}%
+\contentsline {section}{\numberline {5}ROS Driver}{10}{section.5}%
+\contentsline {section}{\numberline {6}Remote Control}{10}{section.6}%
