@@ -8,3 +8,4 @@
 *.gz
 *.bak
 *.toc
+*build*
